@@ -1,9 +1,7 @@
 package com.school.languagescholl.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -16,10 +14,12 @@ public class HomeController {
         return "/home";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/confirmlogout")
     public String logout() {
-        return "/logout";
+        return "/confirmlogout";
     }
+
+
 
     @GetMapping("/login")
     public String login() {
