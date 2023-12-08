@@ -1,16 +1,30 @@
 package com.school.languagescholl;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import java.util.Locale;
+
 @Configuration
 @EnableWebMvc
+@EnableWebSecurity
 @ComponentScan(basePackages="com.school.languagescholl")
+@EnableTransactionManagement
+//@EnableJpaRepositories(basePackages = "com.school.languagescholl")
 public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -34,5 +48,19 @@ public class AppConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("/static/");
     }
+
+//    @Bean
+//    public LocalEntityManagerFactoryBean entityManagerFactory() {
+//        LocalEntityManagerFactoryBean entityManagerFactoryBean
+//                = new LocalEntityManagerFactoryBean();
+//        entityManagerFactoryBean.setPersistenceUnitName("language_schoolPersistenceUnit");
+//        return entityManagerFactoryBean;
+//    }
+//    @Bean
+//    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+//        JpaTransactionManager jpaTransactionManager =
+//                new JpaTransactionManager((jakarta.persistence.EntityManagerFactory) entityManagerFactory);
+//        return jpaTransactionManager;
+//    }
 
 }
