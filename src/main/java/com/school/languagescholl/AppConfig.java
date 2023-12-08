@@ -15,8 +15,8 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.Locale;
 
 @Configuration
@@ -49,18 +49,18 @@ public class AppConfig implements WebMvcConfigurer {
                 .addResourceLocations("/static/");
     }
 
-//    @Bean
-//    public LocalEntityManagerFactoryBean entityManagerFactory() {
-//        LocalEntityManagerFactoryBean entityManagerFactoryBean
-//                = new LocalEntityManagerFactoryBean();
-//        entityManagerFactoryBean.setPersistenceUnitName("language_schoolPersistenceUnit");
-//        return entityManagerFactoryBean;
-//    }
-//    @Bean
-//    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-//        JpaTransactionManager jpaTransactionManager =
-//                new JpaTransactionManager((jakarta.persistence.EntityManagerFactory) entityManagerFactory);
-//        return jpaTransactionManager;
-//    }
+    @Bean
+    public LocalEntityManagerFactoryBean entityManagerFactory() {
+        LocalEntityManagerFactoryBean entityManagerFactoryBean
+                = new LocalEntityManagerFactoryBean();
+        entityManagerFactoryBean.setPersistenceUnitName("languageSchollPersistenceUnit");
+        return entityManagerFactoryBean;
+    }
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+        JpaTransactionManager jpaTransactionManager =
+                new JpaTransactionManager(entityManagerFactory);
+        return jpaTransactionManager;
+    }
 
 }
