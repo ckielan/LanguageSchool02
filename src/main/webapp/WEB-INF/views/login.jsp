@@ -6,11 +6,12 @@
 <%--    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style.css"/>--%>
         <link type="text/css" rel="stylesheet" href="/static/styles.css">
     <title>Login to LanguageSchool</title>
+
 </head>
 <body>
 
+<h1>Login to Language School Application</h1>
 <br><br>
-Login to Language School Application
 <div class="container">
     <form method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>

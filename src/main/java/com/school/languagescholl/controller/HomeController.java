@@ -26,5 +26,10 @@ public class HomeController {
         return "/login";
     }
 
+    @GetMapping("/students")
+    public String students (){
+        return "/students";
+    }
+
 }
 
