@@ -1,9 +1,10 @@
-package com.school.languagescholl;
+package pl.school.languagescholl;
 
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManagerFactory;
 import java.util.Locale;
 
 @Configuration
@@ -59,7 +60,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager jpaTransactionManager =
-                new JpaTransactionManager(entityManagerFactory);
+                new JpaTransactionManager((javax.persistence.EntityManagerFactory) entityManagerFactory);
         return jpaTransactionManager;
     }
 

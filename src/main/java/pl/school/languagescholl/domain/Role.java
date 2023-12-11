@@ -1,4 +1,4 @@
-package domain;
+package pl.school.languagescholl.domain;
 
 import javax.persistence.*;
 

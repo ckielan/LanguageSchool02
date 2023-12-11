@@ -1,4 +1,4 @@
-package com.school.languagescholl.config;
+package pl.school.languagescholl.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

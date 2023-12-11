@@ -9,7 +9,13 @@
         <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.school</groupId>
+    <repositories>
+        <repository>
+            <id>"my-repo"</id>
+            <url>"https://mvnrepository.com/artifact/com.mysql/mysql-connector-j"</url>
+        </repository>
+    </repositories>
+    <groupId>pl.school</groupId>
     <artifactId>languagescholl</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -20,10 +26,10 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <dependencies>
-<!--        		<dependency>-->
-<!--        			<groupId>org.springframework.boot</groupId>-->
-<!--        			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        		</dependency>-->
+        		<dependency>
+        			<groupId>org.springframework.boot</groupId>
+        			<artifactId>spring-boot-starter-data-jpa</artifactId>
+        		</dependency>
         		<dependency>
         			<groupId>org.springframework.boot</groupId>
         			<artifactId>spring-boot-starter-security</artifactId>
@@ -54,11 +60,11 @@
         			<artifactId>spring-security-test</artifactId>
         			<scope>test</scope>
         		</dependency>
-        		<dependency>
-        			<groupId>com.microsoft.sqlserver</groupId>
-        			<artifactId>mssql-jdbc</artifactId>
-        			<scope>runtime</scope>
-        		</dependency>
+<!--        		<dependency>-->
+<!--        			<groupId>com.microsoft.sqlserver</groupId>-->
+<!--        			<artifactId>mssql-jdbc</artifactId>-->
+<!--        			<scope>runtime</scope>-->
+<!--        		</dependency>-->
 
         <!--		mvc necessary for jsp file-->
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -69,11 +75,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>jstl</artifactId>-->
+<!--            <version>1.2</version>-->
+<!--        </dependency>-->
         <!--		mvc necessary for jsp file-->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -88,20 +94,25 @@
             <scope>provided</scope>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-core</artifactId>-->
+<!--            <version>5.4.4.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-orm</artifactId>-->
+<!--            <version>5.1.9.RELEASE</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>8.0.17</version>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.4.4.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>5.1.9.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.17</version>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
         </dependency>
         <dependency>
             <groupId>javax.activation</groupId><artifactId>activation</artifactId>
@@ -119,6 +130,14 @@
             <groupId>com.sun.xml.bind</groupId><artifactId>jaxb-impl</artifactId>
             <version>2.3.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.1.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
