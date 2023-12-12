@@ -9,12 +9,6 @@
         <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>my-repo</id>-->
-<!--            <url>https://mvnrepository.com/artifact/com.mysql/mysql-connector-j</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
     <groupId>com.school</groupId>
     <artifactId>languageschool</artifactId> <!-- Corrected artifactId spelling -->
     <version>0.0.1-SNAPSHOT</version>
@@ -54,11 +48,6 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <scope>runtime</scope>
-        </dependency>
 
         <!-- MVC necessary for JSP file -->
         <dependency>
@@ -89,6 +78,29 @@
             <version>9.1.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>2.1.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.1.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.4.2.Final</version>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
