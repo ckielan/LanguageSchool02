@@ -9,12 +9,6 @@
         <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>my-repo</id>-->
-<!--            <url>https://mvnrepository.com/artifact/com.mysql/mysql-connector-j</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
     <groupId>com.school</groupId>
     <artifactId>languageschool</artifactId> <!-- Corrected artifactId spelling -->
     <version>0.0.1-SNAPSHOT</version>
@@ -27,6 +21,10 @@
     </properties>
     <dependencies>
         <!-- Spring Boot Starters -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -68,8 +66,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -80,13 +79,6 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>9.1.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
