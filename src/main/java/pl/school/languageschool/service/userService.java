@@ -2,7 +2,7 @@ package pl.school.languageschool.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.school.languageschool.domain.Users;
+import pl.school.languageschool.domain.User;
 import pl.school.languageschool.repository.UserRepository;
 
 import java.util.List;
@@ -17,11 +17,13 @@ public class userService {
         this.userRepository = userRepository;
     }
 
-    public void saveUser(Users users) {
-        userRepository.save(users);
+    public void saveUser(User user) {
+        userRepository.save(user);
     }
 
-    public List<Users> findAllUser(){
+
+
+    public List<User> findAllUser(){
         return userRepository.findAll();
     }
 }
