@@ -23,8 +23,8 @@ import java.util.Locale;
 @Configuration
 @EnableWebMvc
 @EnableWebSecurity
-@EntityScan("pl.school.languagescholl.domain")
-@ComponentScan(basePackages="pl.school.languagescholl")
+@EntityScan("pl.school.languageschool.domain")
+@ComponentScan(basePackages="pl.school.languageschool")
 @EnableTransactionManagement
 //@EnableJpaRepositories(basePackages = "pl.school.languagescholl")
 public class AppConfig implements WebMvcConfigurer {

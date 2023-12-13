@@ -1,13 +1,12 @@
 package pl.school.languageschool.repository;
 
 
-import pl.school.languageschool.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
+import pl.school.languageschool.domain.Users;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
-    User findByName(String name);
+public interface UserRepository extends JpaRepository<Users,Long> {
+    Users findByUsername(String string);
 }
