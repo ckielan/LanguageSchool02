@@ -1,4 +1,4 @@
-package pl.school.languagescholl.domain;
+package pl.school.languageschool.domain;
 
 
 import jakarta.persistence.*;

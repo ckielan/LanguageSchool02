@@ -1,6 +1,7 @@
-package pl.school.languagescholl;
+package pl.school.languageschool;
 
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +23,7 @@ import java.util.Locale;
 @Configuration
 @EnableWebMvc
 @EnableWebSecurity
+@EntityScan("pl.school.languagescholl.domain")
 @ComponentScan(basePackages="pl.school.languagescholl")
 @EnableTransactionManagement
 //@EnableJpaRepositories(basePackages = "pl.school.languagescholl")
@@ -48,15 +50,6 @@ public class AppConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("/static/");
     }
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("Tst25cte");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/myDb?createDatabaseIfNotExist=true");
 
-        return dataSource;
-    }
 
 }

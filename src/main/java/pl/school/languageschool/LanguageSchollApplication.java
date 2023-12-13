@@ -1,4 +1,4 @@
-package pl.school.languagescholl;
+package pl.school.languageschool;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

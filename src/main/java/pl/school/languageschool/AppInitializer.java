@@ -1,4 +1,4 @@
-package pl.school.languagescholl;
+package pl.school.languageschool;
 
 import jakarta.servlet.FilterRegistration;
 import jakarta.servlet.ServletContext;
