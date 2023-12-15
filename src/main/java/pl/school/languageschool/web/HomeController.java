@@ -17,14 +17,14 @@ public class HomeController {
 
     @GetMapping("/confirmlogout")
     public String logout() {
-        return "/confirmlogout";
+        return "/admin/confirmLogout";
     }
 
 
 
     @GetMapping("/login")
     public String login() {
-        return "/login";
+        return "/admin/login";
     }
 
 

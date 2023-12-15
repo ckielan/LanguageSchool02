@@ -5,18 +5,24 @@
     <title>Student</title>
 </head>
 <body>
-Students list<br><br>
+Users list<br><br>
 <table>
     <tr>
         <th>Id</th>
         <th>User name</th>
+        <th>User email</th>
+        <th>User enabled</th>
+<%--        <th>User role</th>--%>
         <th>Action</th>
     </tr>
     <c:forEach items="${user}" var="u">
         <tr>
             <td><c:out value="${u.id}"/> </td>
             <td><c:out value="${u.username}"/> </td>
-            <td>Change password</td>
+            <td><c:out value="${u.email}"/> </td>
+            <td><c:out value="${u.enabled}"/> </td>
+<%--            <td><c:out value="${u.roles}"/> </td>--%>
+            <td>Reset password Edit</td>
         </tr>
     </c:forEach>
 </table>

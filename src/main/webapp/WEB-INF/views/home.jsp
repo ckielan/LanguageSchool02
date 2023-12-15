@@ -12,7 +12,7 @@ Hello . <br>
 
 
 <sec:authorize access="hasRole('ADMIN')">
-    <a href="/students">Lista studentów</a>
+    <a href="/users">Lista studentów</a>
 </sec:authorize>
 
 <sec:authorize access="isAuthenticated()">

@@ -1,6 +1,12 @@
 package pl.school.languageschool.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+
 import java.util.Set;
 
 
@@ -11,10 +17,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true, length = 60)
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z0-9]{1,59}$",message = "Nazwa musi się składać z conajmniej dwóch znaków, zaczynać się literą")
     private String username;
+    @Pattern(regexp = "^(?=.*[A-Za-z].*[A-Za-z])(?=.*[^A-Za-z0-9]).{8,}$", message = "Hasło musi mieć długość 8 znaków, zawierać cyfrę, znak specjalny")
     private String password;
-
-
+    @Email
     private String email;
 
     private int enabled;
@@ -23,6 +30,15 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 //gettery, settery
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getId() {
         return id;

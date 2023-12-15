@@ -18,10 +18,19 @@ body, html {
     margin-bottom: 10px;
 }
 
+.comments input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 5px; /* Adjust spacing as needed */
+}
+
+.comments label {
+    display: inline-block;
+    font-size: small; /* Adjust font size as needed */
+}
 form {
     width: 300px; /* Możesz dostosować szerokość formularza do własnych potrzeb */
     padding: 20px;
-    color: crimson ;
+    color: darkblue ;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
@@ -29,6 +38,11 @@ form {
 label {
     display: block;
     margin-bottom: 8px;
+}
+
+.errors {
+    color: red;
+    font-size: small;
 }
 
 input {
@@ -39,7 +53,7 @@ input {
 }
 
 button {
-    background-color: #4caf50;
+    background-color:rebeccapurple;
     color: white;
     padding: 10px 15px;
     border: none;

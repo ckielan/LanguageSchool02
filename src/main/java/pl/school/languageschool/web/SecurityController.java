@@ -9,7 +9,7 @@ public class SecurityController {
 
     @GetMapping("/403")
     public String accesDenided(){
-        return "/accesdenided";
+        return "/admin/accesdenided";
     }
 
 
