@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/users/add","/users/create-admin").permitAll()
                         .requestMatchers("/users/**").hasAnyRole("STUDENT","ADMIN")
+                        .requestMatchers("/students/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
                 .formLogin((form) -> form
                         .loginPage("/login")

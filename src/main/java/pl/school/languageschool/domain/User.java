@@ -15,6 +15,8 @@ import java.util.Set;
 
 @Table(name = "user")
 @Entity
+//@SQLInsert(sql = "CREATE TRIGGER before_insert_trigger BEFORE INSERT " +
+//        "ON language_school.user FOR EACH ROW BEGIN SET ne = NOW(); END;")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +25,13 @@ public class User {
     @Pattern(regexp = "^[a-zA-Z][a-zA-Z0-9]{1,59}$",message = "Nazwa musi się składać z conajmniej dwóch znaków, zaczynać się literą")
     private String username;
 
-
+    private String firstname;
+    private String lastname;
 
     @Pattern(regexp = "^(?=.*[A-Za-z].*[A-Za-z])(?=.*[^A-Za-z0-9]).{8,}$", message = "Hasło musi mieć długość 8 znaków, zawierać cyfrę, znak specjalny")
     private String password;
+    @Email
+    private String email;
 
     private int enabled;
     @DateTimeFormat
@@ -40,9 +45,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToOne(mappedBy = "user", cascade =CascadeType.ALL,fetch =FetchType.EAGER)
-    @JoinColumn(name="user_details_id",unique = true)
-    private UserDetails details;
+
 
 
 
@@ -52,6 +55,47 @@ public class User {
 
     //********************************************************************
 
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Date getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
+    }
+
+    public Date getDate_modified() {
+        return date_modified;
+    }
+
+    public void setDate_modified(Date date_modified) {
+        this.date_modified = date_modified;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -83,22 +127,6 @@ public class User {
 
     public void setEnabled(int enabled) {
         this.enabled = enabled;
-    }
-
-    public Date getDate_created() {
-        return date_created;
-    }
-
-    public void setDate_created(Date date_created) {
-        this.date_created = date_created;
-    }
-
-    public Date getDate_modified() {
-        return date_modified;
-    }
-
-    public void setDate_modified(Date date_modified) {
-        this.date_modified = date_modified;
     }
 
     public Set<Role> getRoles() {

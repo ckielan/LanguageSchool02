@@ -6,14 +6,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.school.languageschool.domain.User;
 import pl.school.languageschool.repository.UserRepository;
 import pl.school.languageschool.service.UserService;
 import pl.school.languageschool.service.userServiceImpl;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/users")
@@ -33,8 +32,9 @@ public class UserController {
         return "/user/createAccount";
 
     }
+
     @PostMapping("/add")
-    public String students(@Valid User user, BindingResult bindingResult, Model model){
+    public String students(@Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("bindingResult", bindingResult);
             return "/createAccount";
@@ -80,19 +80,28 @@ public class UserController {
         return ("/user/updateAccount");
     }
 
-        @PostMapping("/update")
+    @PostMapping("/update")
     public String updateUser(@Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("bindingResult", bindingResult);
             return "/user/updateAccount";
         } else {
-
-            userRepository.save(user);
+            User changedUser = userRepository.findByUsername(user.getUsername());
+            changedUser.setEmail(user.getEmail());
+            changedUser.setFirstname(user.getFirstname());
+            changedUser.setLastname(user.getLastname());
+            userRepository.save(changedUser);
             return "redirect:/home";
         }
-
-
     }
 
+    @GetMapping("/list")
+    public String userList(Model model) {
+        model.addAttribute("users", userRepository.findAll());
+        return ("/admin/users");
+    }
+
+    @ModelAttribute("users")
+    public List<User> users(){return userRepository.findAll();}
 }
 

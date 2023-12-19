@@ -13,8 +13,8 @@ Hello . <br>
 
 <sec:authorize access="hasRole('ADMIN')">
     <a href="/users/list">Lista użytkowników</a>
-    <a href="/users/add">Dodaj użytkownika</a>
-    Lista uczniów<br>
+    <a href="/users/add">Dodaj ucznia</a>
+    <a href="/students/list">Lista uczniów</a> <br>
     Lista rodziców<br>
     Lista nauczycieli<br>
 </sec:authorize>
