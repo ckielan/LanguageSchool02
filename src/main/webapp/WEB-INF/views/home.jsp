@@ -15,8 +15,8 @@ Hello . <br>
     <a href="/users/list">Lista użytkowników</a>
     <a href="/users/add">Dodaj ucznia</a>
     <a href="/students/list">Lista uczniów</a> <br>
-    Lista rodziców<br>
-    Lista nauczycieli<br>
+    <a href="/parents/list">Lista rodziców</a> <br>
+    <a href="/teachers/list">Lista nauczycieli</a> <br>
 </sec:authorize>
 
 <sec:authorize access="isAuthenticated()">
