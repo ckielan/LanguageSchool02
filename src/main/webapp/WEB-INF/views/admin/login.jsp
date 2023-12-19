@@ -12,15 +12,15 @@
     <h1>Szkoła języka angielskiego</h1>
     <br><br>
 </div>
-<a href="/create-account">Załóż konto</a>
+<a href="/users/add">Załóż konto</a>
 
     <br>
 
 <div class="container">
     <form method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
+        <div><label> Nazwa użytkownika : <input type="text" name="username"/> </label></div>
+        <div><label> Hasło: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Zaloguj"/></div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
 

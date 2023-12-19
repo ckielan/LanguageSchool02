@@ -31,10 +31,11 @@ public class userServiceImpl implements UserService{
     @Override
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setEnabled(1);
-        Role userRole = roleRepository.findByName("ROLE_USER");
+        user.setEnabled(0);
+        Role userRole = roleRepository.findByName("ROLE_STUDENT");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
+
     }
 
     public void saveAdmin(User user){

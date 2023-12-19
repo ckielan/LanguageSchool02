@@ -9,4 +9,6 @@ import pl.school.languageschool.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     User findByUsername(String string);
+
+
 }

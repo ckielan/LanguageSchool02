@@ -10,6 +10,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private String name_shortcut;
 
     public int getId() {
         return id;
@@ -25,5 +26,13 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getName_shortcut() {
+        return name_shortcut;
+    }
+
+    public void setName_shortcut(String name_shortcut) {
+        this.name_shortcut = name_shortcut;
     }
 }

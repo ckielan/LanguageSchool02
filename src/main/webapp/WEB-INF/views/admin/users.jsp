@@ -9,10 +9,10 @@ Users list<br><br>
 <table>
     <tr>
         <th>Id</th>
-        <th>User name</th>
-        <th>User email</th>
-        <th>User enabled</th>
-<%--        <th>User role</th>--%>
+        <th>Nazwa użytkownika</th>
+        <th>Adres email</th>
+        <th>Aktywny</th>
+        <th>Uprawnienia</th>
         <th>Action</th>
     </tr>
     <c:forEach items="${user}" var="u">
@@ -21,7 +21,9 @@ Users list<br><br>
             <td><c:out value="${u.username}"/> </td>
             <td><c:out value="${u.email}"/> </td>
             <td><c:out value="${u.enabled}"/> </td>
-<%--            <td><c:out value="${u.roles}"/> </td>--%>
+            <td><c:forEach items="${u.roles}" var="a">
+                    <c:out value="${a.name_shortcut},"></c:out>
+                </c:forEach>
             <td>Reset password Edit</td>
         </tr>
     </c:forEach>
