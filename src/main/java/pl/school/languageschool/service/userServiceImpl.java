@@ -29,15 +29,23 @@ public class userServiceImpl implements UserService{
         return userRepository.findByUsername(username);
     }
     @Override
-    public void saveUser(User user) {
+    public void saveUser(User user,Role role) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(0);
-        Role userRole = roleRepository.findByName("ROLE_STUDENT");
-        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        user.setRoles(new HashSet<>(Arrays.asList(role)));
         userRepository.save(user);
 
     }
 
+
+    public void saveTeacher(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setEnabled(0);
+        Role userRole = roleRepository.findByName("ROLE_TEACHER");
+        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        userRepository.save(user);
+
+    }
     public void saveAdmin(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(1);

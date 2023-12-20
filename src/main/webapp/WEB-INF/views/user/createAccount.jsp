@@ -19,7 +19,7 @@
 <body>
 <h1>Utwórz konto</h1>
 <div class="container">
-    <form:form method="post" action="/users/add" modelAttribute="user">
+    <form:form method="post" action="${previousRequest}" modelAttribute="user">
         Nazwa użytkownika:<form:input path="username"/>
         <form:errors path="username" cssClass="errors"/><br>
         Imię:<form:input path="firstname"/>

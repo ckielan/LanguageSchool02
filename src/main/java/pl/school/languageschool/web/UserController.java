@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.school.languageschool.domain.Role;
 import pl.school.languageschool.domain.User;
+import pl.school.languageschool.repository.RoleRepository;
 import pl.school.languageschool.repository.UserRepository;
 import pl.school.languageschool.service.UserService;
 import pl.school.languageschool.service.userServiceImpl;
@@ -20,26 +22,33 @@ public class UserController {
 
     private final UserRepository userRepository;
     private final userServiceImpl userService;
+    private final RoleRepository roleRepository;
 
-    public UserController(UserRepository userRepository, userServiceImpl userService) {
+    public UserController(UserRepository userRepository, userServiceImpl userService, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.roleRepository = roleRepository;
     }
+
+
 
     @GetMapping("/add")
     public String students(Model model, User user) {
         model.addAttribute("user", new User());
+        model.addAttribute("previousRequest", "/users/add");
         return "/user/createAccount";
 
     }
 
     @PostMapping("/add")
     public String students(@Valid User user, BindingResult bindingResult, Model model) {
+        Role role;
+        role=roleRepository.findByName("ROLE_STUDENT");
         if (bindingResult.hasErrors()) {
             model.addAttribute("bindingResult", bindingResult);
             return "/createAccount";
         } else {
-            if (user.getId() == null) userService.saveUser(user);
+            if (user.getId() == null) userService.saveUser(user,role);
             else userService.updateUser(user);
             return "redirect:/home";
         }
