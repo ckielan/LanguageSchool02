@@ -12,7 +12,7 @@
     <h1>Szkoła języka angielskiego</h1>
     <br><br>
 </div>
-<a href="/users/add">Załóż konto</a>
+<a href="/students/registerStudent">Załóż konto</a>
 
     <br>
 

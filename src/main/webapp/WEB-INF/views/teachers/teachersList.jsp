@@ -5,7 +5,7 @@
     <title>Users</title>
 </head>
 <body>
-Lista uczniów<br><br>
+Lista nauczycieli<br><br>
 <table>
     <tr>
         <th>Id</th>

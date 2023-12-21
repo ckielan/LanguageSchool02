@@ -32,27 +32,7 @@ public class UserController {
 
 
 
-    @GetMapping("/add")
-    public String students(Model model, User user) {
-        model.addAttribute("user", new User());
-        model.addAttribute("previousRequest", "/users/add");
-        return "/user/createAccount";
 
-    }
-
-    @PostMapping("/add")
-    public String students(@Valid User user, BindingResult bindingResult, Model model) {
-        Role role;
-        role=roleRepository.findByName("ROLE_STUDENT");
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("bindingResult", bindingResult);
-            return "/createAccount";
-        } else {
-            if (user.getId() == null) userService.saveUser(user,role);
-            else userService.updateUser(user);
-            return "redirect:/home";
-        }
-    }
 
     @GetMapping("/create-admin")
     @ResponseBody

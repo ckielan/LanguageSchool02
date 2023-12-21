@@ -12,12 +12,10 @@ Hello . <br>
 
 
 <sec:authorize access="hasRole('ADMIN')">
-    <a href="/users/list">Lista użytkowników</a>
-    <a href="/users/add">Dodaj ucznia</a><br>
-    <a href="/students/list">Lista uczniów</a> <br>
-    <a href="/parents/list">Lista rodziców</a> <br>
-    <a href="/teacher/list">Lista nauczycieli</a>
-    <a href="/teacher/add">Dodaj nauczyciela</a><br>
+    <a href="/users/list">Lista użytkowników</a><br>
+    <a href="/students/list">Lista uczniów</a>  <a href="/students/add">Dodaj ucznia</a><br>
+    <a href="/parents/list">Lista rodziców</a> <a href="/parents/add">Dodaj rodzica</a><br><br>
+    <a href="/teacher/list">Lista lektorów</a>  <a href="/teacher/add">Dodaj lektora</a><br>
 </sec:authorize>
 
 <sec:authorize access="isAuthenticated()">

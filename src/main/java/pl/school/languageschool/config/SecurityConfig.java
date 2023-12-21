@@ -41,9 +41,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests((request) -> request
                         .requestMatchers("/home").authenticated()
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/users/add","/users/create-admin").permitAll()
+                        .requestMatchers("/users/add","/users/create-admin","/users/update").permitAll()
                         .requestMatchers("/users/**").hasAnyRole("STUDENT","ADMIN")
-                        .requestMatchers("/students/**").hasRole("ADMIN")
+                        .requestMatchers("/students/**").hasAnyRole("ADMIN","STUDENT")
+                        .requestMatchers("/parents/**").hasAnyRole("ADMIN","PARENT")
+                        .requestMatchers("/teachers/**").hasAnyRole("ADMIN","TEACHER")
                         .anyRequest().permitAll())
                 .formLogin((form) -> form
                         .loginPage("/login")

@@ -31,27 +31,27 @@ public class TeachersController {
     }
 
     @GetMapping("/list")
-    public String studentsList(Model model){
+    public String teacherList(Model model){
         Role role;
         role=roleRepository.findByName("ROLE_TEACHER");
         model.addAttribute(userRepository.findByRoles(role));
         return ("/teachers/teachersList");
     }
     @GetMapping("/add")
-    public String students(Model model, User user) {
+    public String teachers(Model model, User user) {
         model.addAttribute("user", new User());
         model.addAttribute("previousRequest", "/teacher/add");
-        return "/user/createAccount";
+        return "/teachers/registerTeacher";
 
     }
 
     @PostMapping("/add")
-    public String students(@Valid User user, BindingResult bindingResult, Model model) {
+    public String teachers(@Valid User user, BindingResult bindingResult, Model model) {
         Role role;
         role=roleRepository.findByName("ROLE_TEACHER");
         if (bindingResult.hasErrors()) {
             model.addAttribute("bindingResult", bindingResult);
-            return "/user/createAccount";
+            return "/teachers/registerTeacher";
         } else {
             if (user.getId() == null) userService.saveUser(user,role);
             else userService.updateUser(user);
