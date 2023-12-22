@@ -11,4 +11,6 @@ public class GroupController {
     public GroupController(GroupController groupController) {
         this.groupController = groupController;
     }
+
+    public GroupController(){}
 }
