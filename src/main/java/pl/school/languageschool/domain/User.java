@@ -2,14 +2,12 @@ package pl.school.languageschool.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.SQLInsert;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 
@@ -35,11 +33,10 @@ public class User {
 
     private int enabled;
     @DateTimeFormat
-    @Column
-    private Date date_created;
+    private LocalDate date_created;
     @DateTimeFormat
     @Column
-    private Date date_modified;
+    private LocalDate date_modified;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -48,7 +45,7 @@ public class User {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name="user_group", joinColumns = @JoinColumn (name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "group_id"))
-    private Set<Group> groups;
+    private Set<StudentGroup> groups;
 
 
 
@@ -56,13 +53,20 @@ public class User {
 
 
     //********************************************************************
+    @PrePersist
+    public void prePersists(){
+        date_created= LocalDate.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        date_modified=LocalDate.now();
+    }
 
-
-    public Set<Group> getGroups() {
+    public Set<StudentGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(Set<Group> groups) {
+    public void setGroups(Set<StudentGroup> groups) {
         this.groups = groups;
     }
 
@@ -82,19 +86,19 @@ public class User {
         this.lastname = lastname;
     }
 
-    public Date getDate_created() {
+    public LocalDate getDate_created() {
         return date_created;
     }
 
-    public void setDate_created(Date date_created) {
+    public void setDate_created(LocalDate date_created) {
         this.date_created = date_created;
     }
 
-    public Date getDate_modified() {
+    public LocalDate getDate_modified() {
         return date_modified;
     }
 
-    public void setDate_modified(Date date_modified) {
+    public void setDate_modified(LocalDate date_modified) {
         this.date_modified = date_modified;
     }
 

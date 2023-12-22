@@ -4,20 +4,23 @@ package pl.school.languageschool.domain;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "group")
-public class Group{
+public class  StudentGroup {
+
+    public StudentGroup() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String name_shortcut;
     private String description;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
