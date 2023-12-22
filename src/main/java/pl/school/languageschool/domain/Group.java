@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "group")
-public class Group {
+public class Group{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -13,7 +13,9 @@ public class Group {
     private String name_shortcut;
     private String description;
 
-
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
