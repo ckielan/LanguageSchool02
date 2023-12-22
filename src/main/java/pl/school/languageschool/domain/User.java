@@ -45,8 +45,10 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-
-
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name="user_group", joinColumns = @JoinColumn (name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<Group> groups;
 
 
 
@@ -55,6 +57,14 @@ public class User {
 
     //********************************************************************
 
+
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
+    }
 
     public String getFirstname() {
         return firstname;

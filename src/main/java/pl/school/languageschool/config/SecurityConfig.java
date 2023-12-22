@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/users/add","/users/create-admin","/users/update").permitAll()
                         .requestMatchers("/users/**").hasAnyRole("STUDENT","ADMIN")
+                        .requestMatchers("/group/**").hasRole("ADMIN")
                         .requestMatchers("/students/**").hasAnyRole("ADMIN","STUDENT")
                         .requestMatchers("/parents/**").hasAnyRole("ADMIN","PARENT")
                         .requestMatchers("/teachers/**").hasAnyRole("ADMIN","TEACHER")
