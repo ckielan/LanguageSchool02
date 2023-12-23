@@ -19,6 +19,10 @@ public class  StudentGroup {
     private String name_shortcut;
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
     @DateTimeFormat
     private LocalDateTime date_created;
     @DateTimeFormat
