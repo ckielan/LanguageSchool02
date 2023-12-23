@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 
@@ -33,10 +34,9 @@ public class User {
 
     private int enabled;
     @DateTimeFormat
-    private LocalDate date_created;
+    private LocalDateTime date_created;
     @DateTimeFormat
-    @Column
-    private LocalDate date_modified;
+    private LocalDateTime date_modified;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -55,11 +55,11 @@ public class User {
     //********************************************************************
     @PrePersist
     public void prePersists(){
-        date_created= LocalDate.now();
+        date_created= LocalDateTime.now();
     }
     @PreUpdate
     public void preUpdate(){
-        date_modified=LocalDate.now();
+        date_modified=LocalDateTime.now();
     }
 
     public Set<StudentGroup> getGroups() {
@@ -86,19 +86,19 @@ public class User {
         this.lastname = lastname;
     }
 
-    public LocalDate getDate_created() {
+    public LocalDateTime getDate_created() {
         return date_created;
     }
 
-    public void setDate_created(LocalDate date_created) {
+    public void setDate_created(LocalDateTime date_created) {
         this.date_created = date_created;
     }
 
-    public LocalDate getDate_modified() {
+    public LocalDateTime getDate_modified() {
         return date_modified;
     }
 
-    public void setDate_modified(LocalDate date_modified) {
+    public void setDate_modified(LocalDateTime date_modified) {
         this.date_modified = date_modified;
     }
 
