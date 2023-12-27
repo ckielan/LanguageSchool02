@@ -7,6 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Parents {
@@ -28,8 +30,10 @@ public class Parents {
     private String description;
 
 
-    @DateTimeFormat
-    private LocalDate date_of_birth;
+    @OneToMany
+    @JoinTable(name = "parents_students", joinColumns = @JoinColumn(name = "parent_id")
+    ,inverseJoinColumns = @JoinColumn(name = "student_id"))
+    private List<Students> children;
 
 
 
@@ -49,13 +53,6 @@ public class Parents {
 //*************************************************************
 
 
-    public LocalDate getDate_of_birth() {
-        return date_of_birth;
-    }
-
-    public void setDate_of_birth(LocalDate date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
 
 
     public Long getId() {
