@@ -40,6 +40,7 @@ public class UserController {
         User user = new User();
         user.setUsername("admin");
         user.setPassword("admin");
+        user.setPhoneNumber("123456789");
         userService.saveAdmin(user);
         return "Utworzono administratora ";
     }

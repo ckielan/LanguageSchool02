@@ -2,6 +2,7 @@ package pl.school.languageschool.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,7 +32,7 @@ public class User {
     private String email;
 
     @Pattern(regexp = "^[0-9]{9}$",message = "Numer telefonu, 9 cyfr")
-    private int phoneNumber;
+    private String phoneNumber;
     private int enabled;
     @DateTimeFormat
     private LocalDateTime date_created;
@@ -72,11 +73,11 @@ public class User {
     }
 
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
