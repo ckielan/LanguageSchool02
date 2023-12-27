@@ -30,6 +30,8 @@ public class User {
     @Email
     private String email;
 
+    @Pattern(regexp = "^[0-9]{9}$",message = "Numer telefonu, 9 cyfr")
+    private int phoneNumber;
     private int enabled;
     @DateTimeFormat
     private LocalDateTime date_created;
@@ -69,6 +71,14 @@ public class User {
         date_modified = LocalDateTime.now();
     }
 
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public Teacher getTeacher() {
         return teacher;

@@ -5,6 +5,8 @@
         <form:errors path="username" cssClass="errors"/><br>
         Email :<form:input path="email"/>
         <form:errors path="email" cssClass="errors"/><br>
+        Numer telefonu: <form:input path="phoneNumber"/>
+        <form:errors  path="phoneNumber" cssClass="errors"/><br>
         Hasło: <form:password id="password" path="password"/><br>
         <form:errors path="password" cssClass="errors"/>
         <div class="comments" style="display: inline">
