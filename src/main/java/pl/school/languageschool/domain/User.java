@@ -49,9 +49,12 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Teacher teacher;
 
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Students student;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Parents parent;
 
 
 
@@ -64,6 +67,31 @@ public class User {
     @PreUpdate
     public void preUpdate() {
         date_modified = LocalDateTime.now();
+    }
+
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Students getStudent() {
+        return student;
+    }
+
+    public void setStudent(Students student) {
+        this.student = student;
+    }
+
+    public Parents getParent() {
+        return parent;
+    }
+
+    public void setParent(Parents parent) {
+        this.parent = parent;
     }
 
     public Set<StudentGroup> getGroups() {

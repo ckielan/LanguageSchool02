@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.school.languageschool.domain.Role;
 import pl.school.languageschool.domain.User;
 import pl.school.languageschool.repository.RoleRepository;
+import pl.school.languageschool.repository.StudentRepository;
 import pl.school.languageschool.repository.UserRepository;
 import pl.school.languageschool.service.userServiceImpl;
 
@@ -20,12 +21,14 @@ public class StudentController {
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
+    private StudentRepository studentRepository;
 
     private final userServiceImpl userService;
 
-    public StudentController(UserRepository userRepository, RoleRepository roleRepository, userServiceImpl userService) {
+    public StudentController(UserRepository userRepository, RoleRepository roleRepository, StudentRepository studentRepository, userServiceImpl userService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.studentRepository = studentRepository;
         this.userService = userService;
     }
 

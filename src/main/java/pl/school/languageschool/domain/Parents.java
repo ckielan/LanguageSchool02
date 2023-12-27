@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-public class Students {
+public class Parents {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,6 @@ public class Students {
     @Size(max = 250)
     private String description;
 
-    private String level;
 
     @DateTimeFormat
     private LocalDate date_of_birth;
@@ -58,13 +57,6 @@ public class Students {
         this.date_of_birth = date_of_birth;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
 
     public Long getId() {
         return id;
