@@ -1,8 +1,6 @@
 package pl.school.languageschool.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -10,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 @Entity
-public class Teacher {
+public class Students {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,8 +39,8 @@ public class Teacher {
     public void preUpdate(){
         date_modified=LocalDateTime.now();
     }
+//*************************************************************
 
-//********************************************************
 
     public Long getId() {
         return id;

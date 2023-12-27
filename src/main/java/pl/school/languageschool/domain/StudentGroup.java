@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 public class  StudentGroup {
@@ -22,6 +23,11 @@ public class  StudentGroup {
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+    @ManyToMany
+    @JoinTable(name = "student_to_group", joinColumns=@JoinColumn(name = "studentgroup_id"),
+    inverseJoinColumns = @JoinColumn(name = "students_id"))
+    private Set<Students> students;
 
     @DateTimeFormat
     private LocalDateTime date_created;
@@ -41,6 +47,8 @@ public class  StudentGroup {
         return date_created;
     }
 
+
+//    ******************************** getter and setter
     public void setDate_created(LocalDateTime date_created) {
         this.date_created = date_created;
     }
@@ -83,5 +91,21 @@ public class  StudentGroup {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Set<Students> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Students> students) {
+        this.students = students;
     }
 }

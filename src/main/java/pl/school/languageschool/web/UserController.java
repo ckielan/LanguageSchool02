@@ -77,8 +77,6 @@ public class UserController {
         } else {
             User changedUser = userRepository.findByUsername(user.getUsername());
             changedUser.setEmail(user.getEmail());
-            changedUser.setFirstname(user.getFirstname());
-            changedUser.setLastname(user.getLastname());
             userRepository.save(changedUser);
             return "redirect:/home";
         }

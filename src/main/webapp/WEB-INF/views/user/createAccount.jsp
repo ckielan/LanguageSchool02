@@ -3,8 +3,6 @@
     <form:form method="post" action="${previousRequest}" modelAttribute="user">
         Nazwa użytkownika:<form:input path="username"/>
         <form:errors path="username" cssClass="errors"/><br>
-        Imię:<form:input path="firstname"/>
-        Nazwisko:<form:input path="lastname"/>
         Email :<form:input path="email"/>
         <form:errors path="email" cssClass="errors"/><br>
         Hasło: <form:password id="password" path="password"/><br>

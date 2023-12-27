@@ -21,11 +21,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true, length = 60)
-    @Pattern(regexp = "^[a-zA-Z][a-zA-Z0-9]{1,59}$",message = "Nazwa musi się składać z conajmniej dwóch znaków, zaczynać się literą")
+    @Pattern(regexp = "^[a-zA-Z][a-zA-Z0-9]{1,59}$", message = "Nazwa musi się składać z conajmniej dwóch znaków, zaczynać się literą")
     private String username;
 
-    private String firstname;
-    private String lastname;
 
     @Pattern(regexp = "^(?=.*[A-Za-z].*[A-Za-z])(?=.*[^A-Za-z0-9]).{8,}$", message = "Hasło musi mieć długość 8 znaków, zawierać cyfrę, znak specjalny")
     private String password;
@@ -43,23 +41,29 @@ public class User {
     private Set<Role> roles;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name="user_group", joinColumns = @JoinColumn (name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "group_id"))
+    @JoinTable(name = "user_group", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
     private Set<StudentGroup> groups;
 
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Teacher teacher;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Students student;
 
 
 
 
     //********************************************************************
     @PrePersist
-    public void prePersists(){
-        date_created= LocalDateTime.now();
+    public void prePersists() {
+        date_created = LocalDateTime.now();
     }
+
     @PreUpdate
-    public void preUpdate(){
-        date_modified=LocalDateTime.now();
+    public void preUpdate() {
+        date_modified = LocalDateTime.now();
     }
 
     public Set<StudentGroup> getGroups() {
@@ -70,21 +74,6 @@ public class User {
         this.groups = groups;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 
     public LocalDateTime getDate_created() {
         return date_created;
